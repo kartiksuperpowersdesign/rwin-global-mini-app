@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>RWIN Global - Gift Points</title>
+<script src="https://telegram.org/js/telegram-web-app.js?63"></script>
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({key:i});
+var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;
+j.src="https://w.graspil.com";f.parentNode.insertBefore(j,f);
+})(window,document,'script','graspil','YOUR_GRASPIL_KEY');
+</script>
+<style>
+:root{--bg:#f4f8ff;--card:#fff;--text:#14213d;--muted:#6b7890;--p:#3157d5;--ok:#16845d}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);
+font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.wrap{max-width:680px;margin:auto;padding:16px 14px 35px}.hero{background:linear-gradient(135deg,#3157d5,#6d8cff);
+color:#fff;border-radius:22px;padding:22px;box-shadow:0 8px 24px #1c3a7814}
+.brand{font-weight:800;font-size:22px}.sub{opacity:.85;margin-top:4px}.balance{margin-top:18px;
+background:#ffffff24;border:1px solid #ffffff33;border-radius:16px;padding:14px}.points{font-size:34px;font-weight:800}
+.section-title{font-size:18px;font-weight:800;margin:24px 2px 12px}.task{background:var(--card);
+border:1px solid #e2e9f5;border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:0 8px 24px #1c3a7810}
+.row{display:flex;justify-content:space-between;gap:12px;align-items:center}.task h3{margin:0 0 5px;font-size:16px}
+.task p{margin:0;color:var(--muted);font-size:13px}.reward{font-weight:800;color:var(--p);white-space:nowrap}
+button{width:100%;border:0;border-radius:13px;padding:13px;margin-top:14px;font-weight:800;font-size:15px;
+background:var(--p);color:#fff}button:disabled{background:#e8f8f1;color:var(--ok)}
+.note{margin-top:16px;padding:12px 14px;border-radius:14px;background:#fff8df;border:1px solid #f1df9a;
+color:#725d12;font-size:12px;line-height:1.45}.user{margin-top:10px;font-size:12px;opacity:.8}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero"><div class="brand">RWIN GLOBAL</div><div class="sub">Gift Points & Task Rewards</div>
+<div class="balance"><div>Your Gift Points</div><div class="points" id="balance">0</div></div>
+<div class="user" id="userInfo"></div></section>
+<div class="section-title">Available Tasks</div><div id="tasks"></div>
+<div class="note"><b>Referral model:</b> B receives the task reward and A receives 50% of B's task reward.
+Registration rewards stay separate. This prototype uses local storage only; production rewards must be
+validated and recorded server-side.</div>
+</div>
+<script>
+(function(){
+const tg=window.Telegram&&window.Telegram.WebApp?window.Telegram.WebApp:null;
+if(tg){tg.ready();tg.expand();try{graspil.push({custom_init_data_row:tg.initData||"",
+platform:tg.platform,version:tg.version,viewportHeight:tg.viewportHeight,
+viewportStableHeight:tg.viewportStableHeight,colorScheme:tg.colorScheme});}catch(e){}}
+const tasks=[
+{id:"task_1_completed",title:"Task 1",reward:200},
+{id:"task_2_completed",title:"Task 2",reward:100},
+{id:"task_3_completed",title:"Task 3",reward:200},
+{id:"task_4_completed",title:"Task 4",reward:100}];
+const key="rwin_gift_points_demo_v1";
+let state=JSON.parse(localStorage.getItem(key)||'{"balance":0,"done":[]}');
+const p=new URLSearchParams(location.search);
+const ref=p.get("startapp")||p.get("start_param")||"";
+const u=tg&&tg.initDataUnsafe?tg.initDataUnsafe.user:null;
+document.getElementById("userInfo").textContent=u?
+("Telegram: "+(u.first_name||"")+(u.username?" @"+u.username:"")):"Preview mode";
+function save(){localStorage.setItem(key,JSON.stringify(state));document.getElementById("balance").textContent=state.balance}
+function track(name,reward){try{graspil.push({event:name,category:"gift_points_task",value_num:reward,unit:"pts"})}catch(e){}}
+function render(){const box=document.getElementById("tasks");box.innerHTML="";
+tasks.forEach(t=>{const done=state.done.includes(t.id),c=document.createElement("div");c.className="task";
+c.innerHTML='<div class="row"><div><h3>'+t.title+'</h3><p>Complete this task to earn Gift Points</p></div><div class="reward">+'+
+t.reward+'</div></div><button '+(done?"disabled":"")+'>'+(done?"✓ Completed":"Complete Task")+'</button>';
+const b=c.querySelector("button");if(!done)b.onclick=()=>{state.done.push(t.id);state.balance+=t.reward;save();
+track(t.id,t.reward);b.disabled=true;b.textContent="✓ Completed"};box.appendChild(c)});save()}
+if(ref){sessionStorage.setItem("rwin_referrer_code",ref);try{graspil.push({event:"referral_app_opened",category:"referral"})}catch(e){}}
+render();
+})();
+</script>
+</body></html>
