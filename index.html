@@ -1,27 +1,40 @@
 <!doctype html>
 <html lang="en">
 <head>
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<meta
+name="viewport"
+content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 
 <title>RWIN Global - Gift Points</title>
 
 <script src="https://telegram.org/js/telegram-web-app.js?63"></script>
 
-<!-- Graspil Tracking -->
+<!-- =========================
+     GRASPIL TRACKING
+========================= -->
+
 <script type="text/javascript">
 (function(w,d,s,l,i){
     w[l]=w[l]||[];
     w[l].push({key:i});
+
     var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s);
+
     j.async=true;
     j.src="https://w.graspil.com";
+
     f.parentNode.insertBefore(j,f);
+
 })(window,document,"script","graspil","398e4f74f6aca5b117c579a81244acb5");
 </script>
 
+
 <style>
+
 :root{
 --bg:#f4f8ff;
 --card:#fff;
@@ -31,7 +44,9 @@
 --ok:#16845d;
 }
 
-*{box-sizing:border-box}
+*{
+box-sizing:border-box
+}
 
 body{
 margin:0;
@@ -77,136 +92,397 @@ font-size:34px;
 font-weight:800
 }
 
-.section-title{
-font-size:18px;
-font-weight:800;
-margin:24px 2px 12px
-}
-
-.task{
-background:var(--card);
-border:1px solid #e2e9f5;
-border-radius:18px;
-padding:16px;
-margin-bottom:12px;
-box-shadow:0 8px 24px #1c3a7810
-}
-
-.row{
-display:flex;
-justify-content:space-between;
-gap:12px;
-align-items:center
-}
-
-.task h3{
-margin:0 0 5px;
-font-size:16px
-}
-
-.task p{
-margin:0;
-color:var(--muted);
-font-size:13px
-}
-
-.reward{
-font-weight:800;
-color:var(--p);
-white-space:nowrap
-}
-
-button{
-width:100%;
-border:0;
-border-radius:13px;
-padding:13px;
-margin-top:14px;
-font-weight:800;
-font-size:15px;
-background:var(--p);
-color:#fff
-}
-
-button:disabled{
-background:#e8f8f1;
-color:var(--ok)
-}
-
-.note{
-margin-top:16px;
-padding:12px 14px;
-border-radius:14px;
-background:#fff8df;
-border:1px solid #f1df9a;
-color:#725d12;
-font-size:12px;
-line-height:1.45
-}
-
 .user{
 margin-top:10px;
 font-size:12px;
 opacity:.8
 }
 
-.referral{
+
+/* =========================
+   REFERRAL BOX
+========================= */
+
+.referral-box{
+
 margin-top:14px;
-padding:14px;
+
+padding:15px;
+
 background:#ffffff20;
+
 border:1px solid #ffffff33;
-border-radius:14px;
-font-size:13px
+
+border-radius:16px;
+
 }
+
+.referral-title{
+
+font-size:16px;
+
+font-weight:800;
+
+margin-bottom:5px;
+
+}
+
+.referral-sub{
+
+font-size:12px;
+
+opacity:.85;
+
+line-height:1.4;
+
+}
+
+.referral-link{
+
+margin-top:10px;
+
+background:#ffffff;
+
+color:#3157d5;
+
+border-radius:10px;
+
+padding:10px;
+
+font-size:11px;
+
+word-break:break-all;
+
+line-height:1.4;
+
+}
+
+.referral-buttons{
+
+display:flex;
+
+gap:8px;
+
+margin-top:10px;
+
+}
+
+.referral-buttons button{
+
+margin-top:0;
+
+flex:1;
+
+padding:11px 8px;
+
+font-size:13px;
+
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section-title{
+
+font-size:18px;
+
+font-weight:800;
+
+margin:24px 2px 12px
+
+}
+
+
+/* =========================
+   TASK
+========================= */
+
+.task{
+
+background:var(--card);
+
+border:1px solid #e2e9f5;
+
+border-radius:18px;
+
+padding:16px;
+
+margin-bottom:12px;
+
+box-shadow:0 8px 24px #1c3a7810
+
+}
+
+.row{
+
+display:flex;
+
+justify-content:space-between;
+
+gap:12px;
+
+align-items:center
+
+}
+
+.task h3{
+
+margin:0 0 5px;
+
+font-size:16px
+
+}
+
+.task p{
+
+margin:0;
+
+color:var(--muted);
+
+font-size:13px
+
+}
+
+.reward{
+
+font-weight:800;
+
+color:var(--p);
+
+white-space:nowrap
+
+}
+
+button{
+
+width:100%;
+
+border:0;
+
+border-radius:13px;
+
+padding:13px;
+
+margin-top:14px;
+
+font-weight:800;
+
+font-size:15px;
+
+background:var(--p);
+
+color:#fff
+
+}
+
+button:disabled{
+
+background:#e8f8f1;
+
+color:var(--ok)
+
+}
+
+
+/* =========================
+   NOTE
+========================= */
+
+.note{
+
+margin-top:16px;
+
+padding:12px 14px;
+
+border-radius:14px;
+
+background:#fff8df;
+
+border:1px solid #f1df9a;
+
+color:#725d12;
+
+font-size:12px;
+
+line-height:1.45
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
 <div class="wrap">
 
+
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero">
 
-<div class="brand">RWIN GLOBAL</div>
+
+<div class="brand">
+RWIN GLOBAL
+</div>
+
 
 <div class="sub">
 Gift Points & Referral Rewards
 </div>
 
+
 <div class="balance">
-<div>Your Gift Points</div>
-<div class="points" id="balance">0</div>
+
+<div>
+Your Gift Points
 </div>
 
-<div class="user" id="userInfo"></div>
-
-<div class="referral" id="refInfo">
-Referral status: Checking...
+<div
+class="points"
+id="balance">
+0
 </div>
+
+</div>
+
+
+<div
+class="user"
+id="userInfo">
+</div>
+
+
+<!-- =========================
+     REFERRAL
+========================= -->
+
+<div
+class="referral-box"
+id="referralBox">
+
+<div class="referral-title">
+🔗 Invite Friends & Earn
+</div>
+
+<div class="referral-sub">
+
+Invite your friends using your personal referral link.
+
+<br>
+
+You get rewards when your referred user completes activities.
+
+</div>
+
+
+<div
+class="referral-link"
+id="referralLink">
+
+Creating your referral link...
+
+</div>
+
+
+<div class="referral-buttons">
+
+<button
+id="copyReferral">
+📋 Copy Link
+</button>
+
+
+<button
+id="shareReferral">
+📤 Share
+</button>
+
+</div>
+
+</div>
+
 
 </section>
+
+
+
+<!-- =========================
+     TASKS
+========================= -->
 
 <div class="section-title">
 Available Tasks
 </div>
 
+
 <div id="tasks"></div>
 
+
+
+<!-- =========================
+     REWARD INFORMATION
+========================= -->
+
 <div class="note">
-<b>Reward System</b><br>
-Referral Join: B receives 200 Points and A receives 100 Points.<br>
-Each completed task gives B 100 Points and A 50 Points.
-</div>
+
+<b>🎁 Reward System</b>
+
+<br><br>
+
+Referral Join:
+B receives <b>200 Points</b>
+and A receives <b>100 Points</b>.
+
+<br><br>
+
+Task 1:
+B +100 / A +50
+
+<br>
+
+Task 2:
+B +100 / A +50
+
+<br>
+
+Task 3:
+B +100 / A +50
+
+<br>
+
+Task 4:
+B +100 / A +50
+
+<br><br>
+
+<b>
+Maximum from one referral:
+B = 600 Points
+<br>
+A = 300 Points
+</b>
 
 </div>
+
+
+</div>
+
+
 
 <script>
 
 (function(){
 
-/* =========================
+
+/* =====================================================
    TELEGRAM
-========================= */
+===================================================== */
 
 const tg =
 window.Telegram &&
@@ -214,20 +490,36 @@ window.Telegram.WebApp
 ? window.Telegram.WebApp
 : null;
 
+
 if(tg){
 
 tg.ready();
+
 tg.expand();
+
 
 try{
 
 graspil.push({
-custom_init_data_row:tg.initData || "",
-platform:tg.platform,
-version:tg.version,
-viewportHeight:tg.viewportHeight,
-viewportStableHeight:tg.viewportStableHeight,
-colorScheme:tg.colorScheme
+
+custom_init_data_row:
+tg.initData || "",
+
+platform:
+tg.platform,
+
+version:
+tg.version,
+
+viewportHeight:
+tg.viewportHeight,
+
+viewportStableHeight:
+tg.viewportStableHeight,
+
+colorScheme:
+tg.colorScheme
+
 });
 
 }catch(e){}
@@ -235,9 +527,9 @@ colorScheme:tg.colorScheme
 }
 
 
-/* =========================
+/* =====================================================
    TELEGRAM USER
-========================= */
+===================================================== */
 
 const user =
 tg &&
@@ -246,153 +538,429 @@ tg.initDataUnsafe.user
 ? tg.initDataUnsafe.user
 : null;
 
+
 const telegramId =
-user && user.id
+user &&
+user.id
 ? String(user.id)
 : "preview";
 
 
-/* =========================
+/* =====================================================
+   USER INFO
+===================================================== */
+
+document.getElementById("userInfo").textContent =
+
+user
+
+?
+
+(
+"Telegram: " +
+
+(user.first_name || "") +
+
+(user.username
+? " @" + user.username
+: "")
+)
+
+:
+
+"Preview mode";
+
+
+
+/* =====================================================
    REFERRAL PARAMETER
-========================= */
+===================================================== */
 
 let ref = "";
 
-if(tg &&
-tg.initDataUnsafe &&
-tg.initDataUnsafe.start_param){
 
-ref = tg.initDataUnsafe.start_param;
+if(
+
+tg &&
+
+tg.initDataUnsafe &&
+
+tg.initDataUnsafe.start_param
+
+){
+
+ref =
+String(tg.initDataUnsafe.start_param);
 
 }
 
+
 if(!ref){
 
-const params = new URLSearchParams(location.search);
+const params =
+new URLSearchParams(location.search);
+
 
 ref =
+
 params.get("startapp") ||
+
 params.get("start_param") ||
+
 params.get("start") ||
+
 params.get("ref") ||
+
 "";
 
 }
 
 
-/* =========================
-   USER INFO
-========================= */
+/* =====================================================
+   CLEAN REFERRAL VALUE
+===================================================== */
 
-document.getElementById("userInfo").textContent =
-user
-?
-("Telegram: " +
-(user.first_name || "") +
-(user.username ? " @" + user.username : ""))
-:
-"Preview mode";
+function cleanReferral(value){
+
+value =
+String(value || "");
 
 
-/* =========================
+if(value.startsWith("ref-")){
+
+return value.substring(4);
+
+}
+
+
+if(value.startsWith("ref_")){
+
+return value.substring(4);
+
+}
+
+
+return value;
+
+}
+
+
+const cleanRef =
+cleanReferral(ref);
+
+
+/* =====================================================
+   PERSONAL REFERRAL LINK
+=====================================================
+
+   Graspil can use the Telegram ID directly
+   as the referrer when that option is enabled.
+
+===================================================== */
+
+let personalReferralLink = "";
+
+
+if(telegramId !== "preview"){
+
+personalReferralLink =
+"https://t.me/Rwinglobalelitebot?start=" +
+encodeURIComponent(telegramId);
+
+}
+
+
+const referralLinkElement =
+document.getElementById("referralLink");
+
+
+if(personalReferralLink){
+
+referralLinkElement.textContent =
+personalReferralLink;
+
+}else{
+
+referralLinkElement.textContent =
+"Referral link available inside Telegram";
+
+}
+
+
+/* =====================================================
+   COPY REFERRAL LINK
+===================================================== */
+
+document
+.getElementById("copyReferral")
+.addEventListener("click", async function(){
+
+if(!personalReferralLink){
+
+return;
+
+}
+
+
+try{
+
+await navigator.clipboard.writeText(
+personalReferralLink
+);
+
+this.textContent =
+"✓ Copied";
+
+setTimeout(()=>{
+
+this.textContent =
+"📋 Copy Link";
+
+},1800);
+
+
+}catch(e){
+
+const temp =
+document.createElement("textarea");
+
+temp.value =
+personalReferralLink;
+
+document.body.appendChild(temp);
+
+temp.select();
+
+document.execCommand("copy");
+
+document.body.removeChild(temp);
+
+this.textContent =
+"✓ Copied";
+
+setTimeout(()=>{
+
+this.textContent =
+"📋 Copy Link";
+
+},1800);
+
+}
+
+});
+
+
+/* =====================================================
+   SHARE REFERRAL LINK
+===================================================== */
+
+document
+.getElementById("shareReferral")
+.addEventListener("click", function(){
+
+if(!personalReferralLink){
+
+return;
+
+}
+
+
+const shareText =
+"🎁 Join RWIN Global and earn Gift Points!\n\n" +
+"Open the Mini App using my referral link:\n" +
+personalReferralLink;
+
+
+const shareUrl =
+"https://t.me/share/url?url=" +
+encodeURIComponent(personalReferralLink) +
+"&text=" +
+encodeURIComponent(
+"🎁 Join RWIN Global and earn Gift Points!"
+);
+
+
+try{
+
+if(tg && tg.openTelegramLink){
+
+tg.openTelegramLink(shareUrl);
+
+}else{
+
+window.open(
+shareUrl,
+"_blank"
+);
+
+}
+
+}catch(e){
+
+window.open(
+shareUrl,
+"_blank"
+);
+
+}
+
+});
+
+
+/* =====================================================
    TASKS
-========================= */
+===================================================== */
 
 const tasks = [
 
 {
-id:"task_1_completed",
-title:"Task 1",
-reward:100
+
+id:
+"task_1_completed",
+
+title:
+"Task 1",
+
+reward:
+100
+
 },
 
 {
-id:"task_2_completed",
-title:"Task 2",
-reward:100
+
+id:
+"task_2_completed",
+
+title:
+"Task 2",
+
+reward:
+100
+
 },
 
 {
-id:"task_3_completed",
-title:"Task 3",
-reward:100
+
+id:
+"task_3_completed",
+
+title:
+"Task 3",
+
+reward:
+100
+
 },
 
 {
-id:"task_4_completed",
-title:"Task 4",
-reward:100
+
+id:
+"task_4_completed",
+
+title:
+"Task 4",
+
+reward:
+100
+
 }
 
 ];
 
 
-/* =========================
+/* =====================================================
    USER-SPECIFIC STORAGE
-========================= */
+===================================================== */
 
 const storageKey =
-"rwin_gift_points_user_" + telegramId;
+"rwin_gift_points_user_" +
+telegramId;
+
 
 let state;
+
 
 try{
 
 state =
 JSON.parse(
-localStorage.getItem(storageKey) ||
+
+localStorage.getItem(storageKey)
+
+||
+
 '{"balance":0,"done":[],"referralRewarded":false}'
+
 );
 
 }catch(e){
 
 state={
+
 balance:0,
+
 done:[],
+
 referralRewarded:false
+
 };
 
 }
 
 
-/* =========================
+/* =====================================================
    SAVE
-========================= */
+===================================================== */
 
 function save(){
 
 localStorage.setItem(
+
 storageKey,
+
 JSON.stringify(state)
+
 );
 
-document.getElementById("balance").textContent =
+
+document
+.getElementById("balance")
+.textContent =
 state.balance;
 
 }
 
 
-/* =========================
+/* =====================================================
    GRASPIL EVENT TRACKING
-========================= */
+===================================================== */
 
-function trackEvent(eventName, reward){
+function trackEvent(
+eventName,
+reward
+){
 
 try{
 
 graspil.push({
 
-event:eventName,
+event:
+eventName,
 
-category:"rwin_gift_points",
+category:
+"rwin_gift_points",
 
-value_num:reward,
+value_num:
+reward,
 
-unit:"points",
+unit:
+"points",
 
-telegram_user_id:telegramId,
+telegram_user_id:
+telegramId,
 
-referrer_param:ref || ""
+referrer_param:
+ref || ""
 
 });
 
@@ -401,27 +969,66 @@ referrer_param:ref || ""
 }
 
 
-/* =========================
+/* =====================================================
    REFERRAL JOIN
-========================= */
+===================================================== */
 
 function processReferral(){
 
-const refBox =
-document.getElementById("refInfo");
+const referralBox =
+document.getElementById(
+"referralBox"
+);
 
 
-if(ref){
+/* --------------------------------
+   No referral
+-------------------------------- */
 
-refBox.textContent =
-"Referral activated ✓";
+if(!cleanRef){
+
+return;
+
+}
 
 
-/*
-B gets 200 points.
+/* --------------------------------
+   Self referral protection
+-------------------------------- */
 
-Only award once for this Telegram user.
-*/
+if(
+
+telegramId !== "preview" &&
+
+cleanRef === telegramId
+
+){
+
+referralBox.querySelector(
+".referral-sub"
+).innerHTML =
+
+"Your personal referral link is ready.";
+
+return;
+
+}
+
+
+/* --------------------------------
+   Referral activated
+-------------------------------- */
+
+referralBox.querySelector(
+".referral-sub"
+).innerHTML =
+
+"✓ Referral activated. You received 200 Gift Points.";
+
+
+/* --------------------------------
+   B gets 200 points
+-------------------------------- */
 
 if(!state.referralRewarded){
 
@@ -432,12 +1039,9 @@ state.referralRewarded = true;
 save();
 
 
-/*
-Send referral event to Graspil.
-
-This event is used for A's
-100 point referral reward.
-*/
+/* --------------------------------
+   Graspil referral event
+-------------------------------- */
 
 trackEvent(
 "referral_joined",
@@ -446,30 +1050,30 @@ trackEvent(
 
 }
 
-}else{
-
-refBox.textContent =
-"Direct user";
-
-}
-
 }
 
 
-/* =========================
-   TASK EVENT
-========================= */
+/* =====================================================
+   TASK COMPLETE
+===================================================== */
 
-function completeTask(task, button){
+function completeTask(
+task,
+button
+){
 
-if(state.done.includes(task.id)){
+if(
+state.done.includes(task.id)
+){
+
 return;
+
 }
 
 
-/*
-B gets 100 points.
-*/
+/* --------------------------------
+   B gets 100 points
+-------------------------------- */
 
 state.done.push(task.id);
 
@@ -478,12 +1082,9 @@ state.balance += task.reward;
 save();
 
 
-/*
-Send task event to Graspil.
-
-Graspil referral rules will give
-A 50 points for each task.
-*/
+/* --------------------------------
+   Graspil event
+-------------------------------- */
 
 trackEvent(
 task.id,
@@ -491,7 +1092,12 @@ task.reward
 );
 
 
-button.disabled = true;
+/* --------------------------------
+   UI
+-------------------------------- */
+
+button.disabled =
+true;
 
 button.textContent =
 "✓ Completed";
@@ -499,27 +1105,35 @@ button.textContent =
 }
 
 
-/* =========================
+/* =====================================================
    RENDER TASKS
-========================= */
+===================================================== */
 
 function render(){
 
 const box =
 document.getElementById("tasks");
 
-box.innerHTML = "";
+
+box.innerHTML =
+"";
 
 
 tasks.forEach(function(task){
 
+
 const done =
-state.done.includes(task.id);
+state.done.includes(
+task.id
+);
+
 
 const card =
 document.createElement("div");
 
-card.className = "task";
+
+card.className =
+"task";
 
 
 card.innerHTML =
@@ -529,24 +1143,37 @@ card.innerHTML =
 '<div>' +
 
 '<h3>' +
+
 task.title +
+
 '</h3>' +
 
 '<p>' +
+
 'Complete this task to earn Gift Points' +
+
 '</p>' +
 
 '</div>' +
 
 '<div class="reward">' +
+
 '+' +
+
 task.reward +
+
+' Points' +
+
 '</div>' +
 
 '</div>' +
 
 '<button ' +
-(done ? "disabled" : "") +
+
+(done
+? "disabled"
+: "") +
+
 '>' +
 
 (done
@@ -557,12 +1184,15 @@ task.reward +
 
 
 const button =
-card.querySelector("button");
+card.querySelector(
+"button"
+);
 
 
 if(!done){
 
-button.onclick = function(){
+button.onclick =
+function(){
 
 completeTask(
 task,
@@ -574,7 +1204,9 @@ button
 }
 
 
-box.appendChild(card);
+box.appendChild(
+card
+);
 
 });
 
@@ -584,23 +1216,24 @@ save();
 }
 
 
-/* =========================
+/* =====================================================
    START
-========================= */
+===================================================== */
 
 processReferral();
 
 render();
 
 
-/* =========================
+/* =====================================================
    APP OPEN EVENT
-========================= */
+===================================================== */
 
 trackEvent(
 "mini_app_opened",
 0
 );
+
 
 })();
 
