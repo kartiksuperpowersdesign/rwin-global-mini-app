@@ -438,6 +438,8 @@ Available Tasks
 Referral Join:
 B receives <b>200 Points</b>
 and A receives <b>100 Points</b>.
+<br>
+<small>Rewards are recorded through Graspil workflows.</small>
 
 <br><br>
 
@@ -932,6 +934,12 @@ state.balance;
 
 
 /* =====================================================
+   GRASPIL EVENT NAMES
+===================================================== */
+
+const EVENT_REFERRAL_SIGNUP = "referral_signup";
+
+/* =====================================================
    GRASPIL EVENT TRACKING
 ===================================================== */
 
@@ -939,6 +947,11 @@ function trackEvent(
 eventName,
 reward
 ){
+
+/* Never create reward events from preview mode. */
+if(telegramId === "preview"){
+return;
+}
 
 try{
 
@@ -1044,7 +1057,7 @@ save();
 -------------------------------- */
 
 trackEvent(
-"referral_joined",
+EVENT_REFERRAL_SIGNUP,
 200
 );
 
